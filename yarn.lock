@@ -835,6 +835,11 @@ tailwindcss@^2.0.2:
     reduce-css-calc "^2.1.6"
     resolve "^1.19.0"
 
+to-chinese-numerals@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/to-chinese-numerals/-/to-chinese-numerals-1.0.0.tgz#e0d32fae74b58df221cf9e52ca2fd5cd6c110807"
+  integrity sha512-DTnk83sfToz80dd/AaV0XxnqBUk9Kf0Wnfch+81kqV7upU3sFXtmRO1C2XzKpP++s2/obb60e6V72XyVTK4NJw==
+
 to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"

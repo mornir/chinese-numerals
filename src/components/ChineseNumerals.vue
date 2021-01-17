@@ -5,10 +5,11 @@
       type="text"
       name="numeral"
       id="numeral"
+      v-model="arabicNumerals"
       class="w-full px-2 py-2 mb-8 text-2xl font-medium border-2 rounded-lg shadow-md border-primary focus:outline-none focus:bg-red-100"
     />
-    <p class="mb-6 text-4xl">一万零六百八十五</p>
-    <p>
+    <p class="mb-6 ml-2 text-4xl">{{ chineseNumerals }}</p>
+    <p class="ml-2">
       <span>Yī wàn líng liùbǎi bāshíwǔ</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +29,22 @@
 </template>
 
 <script>
+import toChineseNumerals from 'to-chinese-numerals'
+
 export default {
   name: 'ChineseNumerals',
+  data() {
+    return {
+      arabicNumerals: '',
+    }
+  },
+  computed: {
+    chineseNumerals() {
+      if (!this.arabicNumerals.trim()) return
+      const num = parseFloat(this.arabicNumerals)
+      console.log(num)
+      return toChineseNumerals(num)
+    },
+  },
 }
 </script>
