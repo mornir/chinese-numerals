@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^0.2.0",
-    "to-chinese-numerals": "^1.0.0",
+    "to-chinese-numeral": "^0.1.0",
     "vue": "^3.0.5"
   },
   "devDependencies": {

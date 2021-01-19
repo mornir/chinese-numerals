@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import toChineseNumerals from 'to-chinese-numerals'
+import toChineseNumerals from 'to-chinese-numeral'
 
 export default {
   name: 'ChineseNumerals',
