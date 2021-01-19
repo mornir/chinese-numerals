@@ -1,5 +1,5 @@
 <template>
-  <div class="px-6 py-8">
+  <div class="max-w-xl px-6 py-8 mx-auto">
     <TheHeader msg="fff" class="mb-12" />
     <main>
       <ChineseNumerals class="mb-12" />
