@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         primary: '#DC2626',
       },
+      outline: {
+        gold: '2px solid #FBBF24',
+      },
     },
   },
   variants: {
