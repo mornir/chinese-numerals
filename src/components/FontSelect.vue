@@ -4,7 +4,7 @@
       <ListboxLabel class="block pl-2">Change font</ListboxLabel>
       <ListboxButton
         class="flex items-center justify-between w-full px-2 py-2 mb-2 text-lg border-2 rounded-lg shadow-md border-primary focus:outline-none focus:border-yellow-400"
-        >{{ selectedFont.pinyin }}
+        >{{ selectedFont }}
         <svg
           class="w-5 h-5 text-gray-700 stroke-current"
           viewBox="0 0 20 20"
@@ -34,7 +34,7 @@
             as="template"
             v-slot="{ active, selected }"
             v-for="font in fonts"
-            :key="font.id"
+            :key="font"
             :value="font"
             class="p-2"
           >
@@ -46,9 +46,9 @@
               class="flex justify-between transition-colors duration-300 ease-out cursor-pointer select-none focus:outline-none"
             >
               <!--    <CheckmarkIcon v-show="selected" /> -->
-              <span class="text-xl">{{ font.pinyin }}</span>
-              <span :style="{ fontFamily: font.pinyin }" class="text-2xl"
-                >三四五六七八九十</span
+              <span class="text-xl">{{ font }}</span>
+              <span :style="{ fontFamily: font }" class="text-2xl"
+                >三四五六七八九</span
               >
             </li>
           </ListboxOption>
@@ -59,7 +59,6 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue'
 import {
   Listbox,
   ListboxLabel,
@@ -76,24 +75,20 @@ export default {
     ListboxOptions,
     ListboxOption,
   },
-  setup(_, { emit }) {
-    const fonts = [
-      { id: 1, pinyin: 'Ma Shan Zheng' },
-      { id: 2, pinyin: 'ZCOOL KuaiLe' },
-      { id: 3, pinyin: 'Kaiti' },
-      { id: 4, pinyin: 'Fangsongti' },
-      { id: 5, pinyin: 'Meishuti' },
-    ]
-    const selectedFont = ref(fonts[0])
-
-    watch(selectedFont, (newFont) => {
-      emit('selected', newFont)
-    })
-
-    return {
-      fonts,
-      selectedFont,
-    }
+  props: {
+    fonts: {
+      type: Array,
+      require: true,
+    },
+    selectedFont: {
+      type: String,
+      require: true,
+    },
+  },
+  watch: {
+    selectedFont(newFont) {
+      this.$emit('selected', newFont)
+    },
   },
 }
 </script>

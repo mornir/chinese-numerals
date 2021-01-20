@@ -28,12 +28,15 @@
       </svg>
     </p>
   </div>
-  <FontSelect />
+  <FontSelect
+    @selected="selectedFont = $event"
+    :fonts="fonts"
+    :selectedFont="selectedFont"
+  />
 </template>
 
 <script>
 import toChineseNumerals from 'to-chinese-numeral'
-
 import FontSelect from './FontSelect.vue'
 
 export default {
@@ -43,15 +46,21 @@ export default {
   },
   data() {
     return {
-      arabicNumerals: '',
-      selectedFont: 'Ma Shan Zheng',
+      fonts: [
+        'Noto Sans SC',
+        'ZCOOL KuaiLe',
+        'Kaiti',
+        'Liu Jian Mao Cao',
+        'Ma Shan Zheng',
+      ],
+      arabicNumerals: '156',
+      selectedFont: 'Noto Sans SC',
     }
   },
   computed: {
     chineseNumerals() {
       if (!this.arabicNumerals.trim()) return
       const num = parseFloat(this.arabicNumerals)
-      console.log(num)
       return toChineseNumerals(num)
     },
   },
