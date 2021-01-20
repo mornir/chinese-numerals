@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-12">
     <label for="numeral" class="pl-2">Enter number</label>
     <input
       type="text"
@@ -28,13 +28,19 @@
       </svg>
     </p>
   </div>
+  <FontSelect />
 </template>
 
 <script>
 import toChineseNumerals from 'to-chinese-numeral'
 
+import FontSelect from './FontSelect.vue'
+
 export default {
   name: 'ChineseNumerals',
+  components: {
+    FontSelect,
+  },
   data() {
     return {
       arabicNumerals: '',

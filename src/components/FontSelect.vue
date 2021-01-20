@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import {
   Listbox,
   ListboxLabel,
@@ -76,15 +76,19 @@ export default {
     ListboxOptions,
     ListboxOption,
   },
-  setup() {
+  setup(_, { emit }) {
     const fonts = [
       { id: 1, pinyin: 'Ma Shan Zheng' },
-      { id: 2, pinyin: 'Heiti' },
+      { id: 2, pinyin: 'ZCOOL KuaiLe' },
       { id: 3, pinyin: 'Kaiti' },
       { id: 4, pinyin: 'Fangsongti' },
       { id: 5, pinyin: 'Meishuti' },
     ]
     const selectedFont = ref(fonts[0])
+
+    watch(selectedFont, (newFont) => {
+      emit('selected', newFont)
+    })
 
     return {
       fonts,
