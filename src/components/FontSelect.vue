@@ -3,8 +3,8 @@
     <Listbox v-model="selectedFont">
       <ListboxLabel class="block pl-2">Change font</ListboxLabel>
       <ListboxButton
-        class="flex items-center justify-between w-full px-2 py-2 mb-2 border-2 rounded-lg shadow-md border-primary focus:outline-none focus:bg-red-100"
-        >{{ selectedFont.pinyin }} ({{ selectedFont.hanzi }})
+        class="flex items-center justify-between w-full px-2 py-2 mb-2 text-lg border-2 rounded-lg shadow-md border-primary focus:outline-none focus:border-yellow-400"
+        >{{ selectedFont.pinyin }}
         <svg
           class="w-5 h-5 text-gray-700 stroke-current"
           viewBox="0 0 20 20"
@@ -26,7 +26,7 @@
         leave-to-class="transform scale-95 opacity-0"
       >
         <ListboxOptions
-          class="py-2 border-2 rounded-xl focus:bg-red-100 border-primary focus:outline-none"
+          class="py-2 border-2 shadow-md rounded-xl focus:border-yellow-400 border-primary focus:outline-none"
         >
           <!-- Use the `active` state to conditionally style the active option. -->
           <!-- Use the `selected` state to conditionally style the selected option. -->
@@ -41,11 +41,15 @@
             <li
               :class="{
                 'bg-red-500 text-white': active,
+                'bg-red-300': selected,
               }"
-              class="focus:outline-none"
+              class="flex justify-between transition-colors duration-300 ease-out cursor-pointer select-none focus:outline-none"
             >
               <!--    <CheckmarkIcon v-show="selected" /> -->
-              {{ font.pinyin }} ({{ font.hanzi }})
+              <span class="text-xl">{{ font.pinyin }}</span>
+              <span :style="{ fontFamily: font.pinyin }" class="text-2xl"
+                >三四五六七八九十</span
+              >
             </li>
           </ListboxOption>
         </ListboxOptions>
@@ -74,11 +78,11 @@ export default {
   },
   setup() {
     const fonts = [
-      { id: 1, pinyin: 'Songti', hanzi: '宋体' },
-      { id: 2, pinyin: 'Heiti', hanzi: '黑体' },
-      { id: 3, pinyin: 'Kaiti', hanzi: '楷体' },
-      { id: 4, pinyin: 'Fangsongti', hanzi: '仿宋体' },
-      { id: 5, pinyin: 'Meishuti', hanzi: '美术体' },
+      { id: 1, pinyin: 'Ma Shan Zheng' },
+      { id: 2, pinyin: 'Heiti' },
+      { id: 3, pinyin: 'Kaiti' },
+      { id: 4, pinyin: 'Fangsongti' },
+      { id: 5, pinyin: 'Meishuti' },
     ]
     const selectedFont = ref(fonts[0])
 

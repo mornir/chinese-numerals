@@ -17,6 +17,8 @@ import FontSelect from './components/FontSelect.vue'
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&text=负点零一二三四五六七八九十百千万');
+
 h1,
 h2,
 h3 {

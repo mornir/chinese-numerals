@@ -6,9 +6,11 @@
       name="numeral"
       id="numeral"
       v-model="arabicNumerals"
-      class="w-full px-2 py-2 mb-8 text-2xl font-medium border-2 rounded-lg shadow-md border-primary focus:outline-none focus:bg-red-100"
+      class="w-full px-2 py-2 mb-8 text-2xl font-medium border-2 rounded-lg shadow-md border-primary focus:outline-none focus:border-yellow-400"
     />
-    <p class="mb-6 ml-2 text-4xl">{{ chineseNumerals }}</p>
+    <p class="mb-6 ml-2 text-4xl" :style="{ fontFamily: selectedFont }">
+      {{ chineseNumerals }}
+    </p>
     <p class="ml-2">
       <span>Yī wàn líng liùbǎi bāshíwǔ</span>
       <svg
@@ -36,6 +38,7 @@ export default {
   data() {
     return {
       arabicNumerals: '',
+      selectedFont: 'Ma Shan Zheng',
     }
   },
   computed: {
