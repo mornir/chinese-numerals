@@ -1,11 +1,11 @@
 <template>
-  <div class="mb-12">
+  <div class="mb-10 h-52">
     <label for="numeral" class="pl-2">Enter number</label>
     <input
       type="text"
       name="numeral"
       id="numeral"
-      v-model="arabicNumerals"
+      v-model="arabicNumeral"
       class="w-full px-2 py-2 mb-8 text-2xl font-medium border-2 rounded-lg shadow-md border-primary focus:outline-none focus:border-yellow-400"
     />
     <p class="mb-6 ml-2 text-4xl" :style="{ fontFamily: selectedFont }">
@@ -13,7 +13,11 @@
     </p>
     <p class="ml-2">
       <span class="mr-3">{{ pinyin }}</span>
-      <button @click="pronounce" class="focus:outline-gold">
+      <button
+        @click="pronounce"
+        class="focus:outline-gold"
+        v-if="chineseNumeral"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -75,14 +79,14 @@ export default {
         'Liu Jian Mao Cao',
         'Ma Shan Zheng',
       ],
-      arabicNumerals: '156',
+      arabicNumeral: '156',
       selectedFont: 'Noto Sans SC',
     }
   },
   computed: {
     chineseNumeral() {
-      if (!this.arabicNumerals.trim()) return
-      const num = parseFloat(this.arabicNumerals)
+      if (!this.arabicNumeral.trim()) return ''
+      const num = parseFloat(this.arabicNumeral)
       return toChineseNumeral(num)
     },
     pinyin() {
