@@ -33,6 +33,7 @@
   <FontSelect
     @selected="selectedFont = $event"
     :fonts="fonts"
+    :fontPreview="chineseNumeral"
     :selectedFont="selectedFont"
   />
 </template>

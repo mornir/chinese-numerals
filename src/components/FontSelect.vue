@@ -47,9 +47,9 @@
             >
               <!--    <CheckmarkIcon v-show="selected" /> -->
               <span class="text-xl">{{ font }}</span>
-              <span :style="{ fontFamily: font }" class="text-2xl"
-                >三四五六七八九</span
-              >
+              <span :style="{ fontFamily: font }" class="text-2xl">{{
+                fontPreview
+              }}</span>
             </li>
           </ListboxOption>
         </ListboxOptions>
@@ -83,6 +83,11 @@ export default {
     selectedFont: {
       type: String,
       require: true,
+    },
+    fontPreview: {
+      type: String,
+      require: false,
+      default: '三四五六七八九',
     },
   },
   watch: {
