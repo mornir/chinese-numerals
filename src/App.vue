@@ -20,10 +20,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Montserrat:wght@500&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&family=Liu+Jian+Mao+Cao&text=负点零一二三四五六七八九十百千万');
-
 h1,
 h2,
 h3 {
@@ -33,6 +29,6 @@ h3 {
 p,
 label {
   font-family: 'Noto Sans SC', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
 }
 </style>

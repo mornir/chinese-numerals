@@ -16,8 +16,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&text=中文数字');
-
 .logo-font {
   font-family: 'Hachi Maru Pop', cursive;
 }
