@@ -33,10 +33,10 @@
   resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-0.2.0.tgz#4ecbe0e0c2db46547e1c6c852d15903b55e256c3"
   integrity sha512-aJ8cCyxNJQcea7I0POrFYtYvT7agmrKAAA8zhBWJxGXTLnFdXlkETKU8eIhd/VlaOOKeYxlzXaHZs/YfwWoc2g==
 
-"@vitejs/plugin-vue@^1.0.4":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.0.6.tgz#698afa5a77a6dcd22cf7757801f46a6f01cdbb53"
-  integrity sha512-cWJewtxnVVpjlhq6DoZ7VP7sF1jTZYVg66ehslZ0tJANWk1uRiCXdqD8yQ4npZ4XewDICQzK+c+9i3Xsubx59w==
+"@vitejs/plugin-vue@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.1.0.tgz#8ae0b11388897b07259c9e5198c0e3fb5e4b37d9"
+  integrity sha512-ExlAt3nb3PB31jV9AgRZSMoGd+aQRU53fc/seghV8/l0JCzaX2mqlgpG8iytWkRxbBPgtAx4TpCPdiVKnTFT/A==
 
 "@vue/compiler-core@3.0.5":
   version "3.0.5"
@@ -154,13 +154,13 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-autoprefixer@^10.2.1:
-  version "10.2.1"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.1.tgz#ce96870df6ddd9ba4c9bbba56c54b9ef4b00a962"
-  integrity sha512-dwP0UjyYvROUvtU+boBx8ff5pPWami1NGTrJs9YUsS/oZVbRAcdNHOOuXSA1fc46tgKqe072cVaKD69rvCc3QQ==
+autoprefixer@^10.2.3:
+  version "10.2.3"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.2.3.tgz#2834b55b75cfc10fa80c66000a66dc94b7136804"
+  integrity sha512-vlz+iv+EnLkVaTgX8wApfYzmK3LUfK8Z9XAnmflzxMy/+oFuNK8fVGQV79SOpBv4jxk2YQJimw4hXIKZ29570A==
   dependencies:
     browserslist "^4.16.1"
-    caniuse-lite "^1.0.30001173"
+    caniuse-lite "^1.0.30001178"
     colorette "^1.2.1"
     fraction.js "^4.0.13"
     normalize-range "^0.1.2"
@@ -214,6 +214,11 @@ caniuse-lite@^1.0.30001173:
   version "1.0.30001177"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001177.tgz#2c3b384933aafda03e29ccca7bb3d8c3389e1ece"
   integrity sha512-6Ld7t3ifCL02jTj3MxPMM5wAYjbo4h/TAQGFTgv1inihP1tWnWp8mxxT4ut4JBEHLbpFXEXJJQ119JCJTBkYDw==
+
+caniuse-lite@^1.0.30001178:
+  version "1.0.30001179"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001179.tgz#b0803883b4471a6c62066fb1752756f8afc699c8"
+  integrity sha512-blMmO0QQujuUWZKyVrD1msR4WNDAqb/UPO1Sw2WWsQ7deoM5bJiicKnWJ1Y0NS/aGINSnKPIWBMw5luX+NDUCA==
 
 chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -835,10 +840,10 @@ tailwindcss@^2.0.2:
     reduce-css-calc "^2.1.6"
     resolve "^1.19.0"
 
-to-chinese-numeral@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/to-chinese-numeral/-/to-chinese-numeral-0.1.0.tgz#eebcf275789df08038773f8cbf28ac609f7678a5"
-  integrity sha512-IwlllR0v+UWIkdh5Qp4YA8WIVzj9jHRlPCLDu7o8WA1xFFFVCYnIfL5GWre4FExsZDO3ZV9fGOQXcaoBBDV1Cg==
+to-chinese-numeral@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/to-chinese-numeral/-/to-chinese-numeral-0.2.0.tgz#a09ac37d86510ff09c4bed4098d4a855deb78932"
+  integrity sha512-DyBybn3EixbQYU4v4T44q25XN706lczToHHXzaOHnrzJXPHLWZBUIpqAWb1M105jlLt7YGNa7ocFKb8FT2KGCA==
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
@@ -865,10 +870,10 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-vite@^2.0.0-beta.12:
-  version "2.0.0-beta.30"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.0.0-beta.30.tgz#d0c1056d1fb05c489614360f92363eebec41a6b4"
-  integrity sha512-wOeO64J3k4jGjCOkH/6RUcIyT/HOTaDZSiXE75aWYqV9hI7Q6uEeSXbAFtb9bG82RGLEWdsqtCvx5t7gaeqtsw==
+vite@^2.0.0-beta.35:
+  version "2.0.0-beta.35"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.0.0-beta.35.tgz#6c449b52ecadd5c6e8ddc002664668e4bfce79f5"
+  integrity sha512-22+MuR3fvy5GmGdjIXHXcUbfVS8P2DK8C2wdcDcdZnugCTd+4XySF2xeRt+VFPyhqq+/KSbdOuA2r47F+VMwig==
   dependencies:
     esbuild "^0.8.26"
     postcss "^8.2.1"

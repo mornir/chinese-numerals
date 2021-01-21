@@ -7,15 +7,15 @@
   },
   "dependencies": {
     "@headlessui/vue": "^0.2.0",
-    "to-chinese-numeral": "^0.1.0",
+    "to-chinese-numeral": "^0.2.0",
     "vue": "^3.0.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.0.4",
+    "@vitejs/plugin-vue": "^1.1.0",
     "@vue/compiler-sfc": "^3.0.5",
-    "autoprefixer": "^10.2.1",
+    "autoprefixer": "^10.2.3",
     "postcss": "^8.2.4",
     "tailwindcss": "^2.0.2",
-    "vite": "^2.0.0-beta.12"
+    "vite": "^2.0.0-beta.35"
   }
 }

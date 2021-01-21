@@ -85,9 +85,12 @@ export default {
   },
   computed: {
     chineseNumeral() {
-      if (!this.arabicNumeral.trim()) return ''
-      const num = parseFloat(this.arabicNumeral)
-      return toChineseNumeral(num)
+      try {
+        const num = parseFloat(this.arabicNumeral)
+        return toChineseNumeral(num)
+      } catch {
+        return ''
+      }
     },
     pinyin() {
       return this.chineseNumeral
