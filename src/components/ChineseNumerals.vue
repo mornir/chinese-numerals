@@ -70,15 +70,15 @@ export default defineComponent({
 
     return {
       fonts: FONTS,
-      arabicNumeral: starterNumber,
+      arabicNumeral: starterNumber.toString(),
       chineseNumeral,
       selectedFont: FONTS[0],
       pinyin,
     }
   },
   methods: {
-    convertToChineseNumeral(event: Event) {
-      const numString = event.currentTarget.value
+    convertToChineseNumeral(event: KeyboardEvent) {
+      const numString = (event.target as HTMLInputElement).value
       this.arabicNumeral = numString
       try {
         const num = parseFloat(numString)
