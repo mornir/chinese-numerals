@@ -43,7 +43,7 @@
   />
 </template>
 
-<script>
+<script lang="ts">
 import toChineseNumeral from 'to-chinese-numeral'
 import FontSelect from './FontSelect.vue'
 
@@ -81,12 +81,15 @@ export default {
   },
   data() {
     const starterNumber = 156
+    const chineseNumeral = toChineseNumeral(starterNumber)
+    const pinyin = this.convertToPinYin(chineseNumeral)
+
     return {
-      fonts,
+      fonts: FONTS,
       arabicNumeral: starterNumber,
-      chineseNumeral: toChineseNumeral(starterNumber),
+      chineseNumeral,
       selectedFont: FONTS[0],
-      pinyin: '',
+      pinyin,
     }
   },
   methods: {
@@ -96,14 +99,17 @@ export default {
       try {
         const num = parseFloat(numString)
         this.chineseNumeral = toChineseNumeral(num)
-        this.pinyin = this.chineseNumeral
-          .split('')
-          .map((n) => PINYINS[n])
-          .join(' ')
+        this.pinyin = this.convertToPinYin(this.chineseNumeral)
       } catch {
         this.chineseNumeral = ''
         this.pinyin = ''
       }
+    },
+    convertToPinYin(chineseNum) {
+      return chineseNum
+        .split('')
+        .map((n) => PINYINS[n])
+        .join(' ')
     },
     pronounce() {
       const utterance = new SpeechSynthesisUtterance(this.chineseNumeral)
