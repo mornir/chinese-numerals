@@ -77,9 +77,10 @@ export default defineComponent({
     }
   },
   methods: {
-    convertToChineseNumeral(event: KeyboardEvent) {
-      const numString = (event.target as HTMLInputElement).value
+    convertToChineseNumeral({ target }: { target: HTMLInputElement }) {
+      const numString = target.value
       this.arabicNumeral = numString
+
       try {
         const num = parseFloat(numString)
         this.chineseNumeral = toChineseNumeral(num)

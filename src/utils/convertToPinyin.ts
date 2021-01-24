@@ -1,4 +1,4 @@
-const PINYINS = {
+const PINYINS: Record<string, string> = {
   负: 'fù',
   点: 'diǎn',
   零: 'líng',
