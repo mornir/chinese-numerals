@@ -44,27 +44,11 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
 import toChineseNumeral from 'to-chinese-numeral'
 import FontSelect from './FontSelect.vue'
 
-const PINYINS = {
-  负: 'fù',
-  点: 'diǎn',
-  零: 'líng',
-  一: 'yī',
-  二: 'èr',
-  三: 'sān',
-  四: 'sì',
-  五: 'wǔ',
-  六: 'liù',
-  七: 'qī',
-  八: 'bā',
-  九: 'jiǔ',
-  十: 'shí',
-  百: 'bǎi',
-  千: 'qiān',
-  万: 'wàn',
-}
+import convertToPinyin from '../utils/convertToPinyin'
 
 const FONTS = [
   'Noto Sans SC',
@@ -74,7 +58,7 @@ const FONTS = [
   'Ma Shan Zheng',
 ]
 
-export default {
+export default defineComponent({
   name: 'ChineseNumerals',
   components: {
     FontSelect,
@@ -82,7 +66,7 @@ export default {
   data() {
     const starterNumber = 156
     const chineseNumeral = toChineseNumeral(starterNumber)
-    const pinyin = this.convertToPinYin(chineseNumeral)
+    const pinyin = convertToPinyin(chineseNumeral)
 
     return {
       fonts: FONTS,
@@ -93,23 +77,17 @@ export default {
     }
   },
   methods: {
-    convertToChineseNumeral(event) {
-      const numString = event.target.value
+    convertToChineseNumeral(event: Event) {
+      const numString = event.currentTarget.value
       this.arabicNumeral = numString
       try {
         const num = parseFloat(numString)
         this.chineseNumeral = toChineseNumeral(num)
-        this.pinyin = this.convertToPinYin(this.chineseNumeral)
+        this.pinyin = convertToPinyin(this.chineseNumeral)
       } catch {
         this.chineseNumeral = ''
         this.pinyin = ''
       }
-    },
-    convertToPinYin(chineseNum) {
-      return chineseNum
-        .split('')
-        .map((n) => PINYINS[n])
-        .join(' ')
     },
     pronounce() {
       const utterance = new SpeechSynthesisUtterance(this.chineseNumeral)
@@ -118,5 +96,5 @@ export default {
       speechSynthesis.speak(utterance)
     },
   },
-}
+})
 </script>
