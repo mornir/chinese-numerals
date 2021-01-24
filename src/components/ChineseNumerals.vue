@@ -5,7 +5,8 @@
       type="text"
       name="numeral"
       id="numeral"
-      v-model="arabicNumeral"
+      :value="arabicNumeral"
+      @input="convertToChineseNumeral"
       class="w-full px-2 py-2 mb-8 text-2xl font-medium border-2 rounded-lg shadow-md border-primary focus:outline-none focus:border-yellow-400"
     />
     <p class="mb-6 ml-2 text-4xl" :style="{ fontFamily: selectedFont }">
@@ -71,6 +72,7 @@ export default {
     FontSelect,
   },
   data() {
+    const starterNumber = 156
     return {
       fonts: [
         'Noto Sans SC',
@@ -79,27 +81,28 @@ export default {
         'Liu Jian Mao Cao',
         'Ma Shan Zheng',
       ],
-      arabicNumeral: '156',
+      arabicNumeral: starterNumber,
+      chineseNumeral: toChineseNumeral(starterNumber),
       selectedFont: 'Noto Sans SC',
+      pinyin: '',
     }
   },
-  computed: {
-    chineseNumeral() {
+  methods: {
+    convertToChineseNumeral(event) {
+      const numString = event.target.value
+      this.arabicNumeral = numString
       try {
-        const num = parseFloat(this.arabicNumeral)
-        return toChineseNumeral(num)
+        const num = parseFloat(numString)
+        this.chineseNumeral = toChineseNumeral(num)
+        this.pinyin = this.chineseNumeral
+          .split('')
+          .map((n) => pinyins[n])
+          .join(' ')
       } catch {
-        return ''
+        this.chineseNumeral = ''
+        this.pinyin = ''
       }
     },
-    pinyin() {
-      return this.chineseNumeral
-        .split('')
-        .map((n) => pinyins[n])
-        .join(' ')
-    },
-  },
-  methods: {
     pronounce() {
       const utterance = new SpeechSynthesisUtterance(this.chineseNumeral)
       utterance.lang = 'zh'
