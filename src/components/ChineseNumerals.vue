@@ -47,7 +47,7 @@
 import toChineseNumeral from 'to-chinese-numeral'
 import FontSelect from './FontSelect.vue'
 
-const pinyins = {
+const PINYINS = {
   负: 'fù',
   点: 'diǎn',
   零: 'líng',
@@ -66,6 +66,14 @@ const pinyins = {
   万: 'wàn',
 }
 
+const FONTS = [
+  'Noto Sans SC',
+  'ZCOOL KuaiLe',
+  'Kaiti',
+  'Liu Jian Mao Cao',
+  'Ma Shan Zheng',
+]
+
 export default {
   name: 'ChineseNumerals',
   components: {
@@ -74,16 +82,10 @@ export default {
   data() {
     const starterNumber = 156
     return {
-      fonts: [
-        'Noto Sans SC',
-        'ZCOOL KuaiLe',
-        'Kaiti',
-        'Liu Jian Mao Cao',
-        'Ma Shan Zheng',
-      ],
+      fonts,
       arabicNumeral: starterNumber,
       chineseNumeral: toChineseNumeral(starterNumber),
-      selectedFont: 'Noto Sans SC',
+      selectedFont: FONTS[0],
       pinyin: '',
     }
   },
@@ -96,7 +98,7 @@ export default {
         this.chineseNumeral = toChineseNumeral(num)
         this.pinyin = this.chineseNumeral
           .split('')
-          .map((n) => pinyins[n])
+          .map((n) => PINYINS[n])
           .join(' ')
       } catch {
         this.chineseNumeral = ''
