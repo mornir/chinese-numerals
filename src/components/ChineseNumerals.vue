@@ -51,6 +51,7 @@ import FontSelect from './FontSelect.vue'
 
 import convertToPinyin from '../utils/convertToPinyin'
 
+// https://flaviocopes.com/speech-synthesis-api/#cross-browser-implementation-to-get-the-language
 const getVoices = (): Promise<SpeechSynthesisVoice[]> => {
   return new Promise((resolve) => {
     let voices = speechSynthesis.getVoices()
