@@ -42,9 +42,6 @@
     :fontPreview="chineseNumeral"
     :selectedFont="selectedFont"
   />
-  <ul>
-    <li v-for="voice in voicesList" :key="voice.lang">{{ voice.lang }}</li>
-  </ul>
 </template>
 
 <script lang="ts">
@@ -54,7 +51,7 @@ import FontSelect from './FontSelect.vue'
 
 import convertToPinyin from '../utils/convertToPinyin'
 
-const getVoices = () => {
+const getVoices = (): Promise<SpeechSynthesisVoice[]> => {
   return new Promise((resolve) => {
     let voices = speechSynthesis.getVoices()
     if (voices.length) {
@@ -92,7 +89,7 @@ export default defineComponent({
       chineseNumeral,
       selectedFont: FONTS[0],
       pinyin,
-      voicesList: [] as any[],
+      voicesList: [] as SpeechSynthesisVoice[],
     }
   },
   methods: {
@@ -110,15 +107,19 @@ export default defineComponent({
       }
     },
     pronounce() {
-      const utterance = new SpeechSynthesisUtterance('158')
-      utterance.lang = 'zh-CN'
+      const utterance = new SpeechSynthesisUtterance(this.chineseNumeral)
+      const lang = 'zh-CN'
+      utterance.voice = this.voicesList.find(
+        (voice) => voice.lang === lang
+      ) as SpeechSynthesisVoice
+      utterance.lang = lang
       utterance.rate = 0.5
+
       speechSynthesis.speak(utterance)
     },
   },
   async mounted() {
-    const voices = (await getVoices()) as any
-    console.log(voices)
+    const voices = await getVoices()
     this.voicesList = voices
   },
 })
