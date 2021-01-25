@@ -7,6 +7,7 @@
       id="numeral"
       :value="arabicNumeral"
       @input="convertToChineseNumeral"
+      inputmode="numeric"
       class="w-full px-2 py-2 mb-8 text-2xl font-medium border-2 rounded-lg shadow-md border-primary focus:outline-none focus:border-yellow-400"
     />
     <p class="mb-6 ml-2 text-4xl" :style="{ fontFamily: selectedFont }">
