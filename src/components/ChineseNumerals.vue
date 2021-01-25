@@ -35,12 +35,16 @@
       </button>
     </p>
   </div>
+
   <FontSelect
     @selected="selectedFont = $event"
     :fonts="fonts"
     :fontPreview="chineseNumeral"
     :selectedFont="selectedFont"
   />
+  <ul>
+    <li v-for="voice in voicesList" :key="voice.lang">{{ voice.lang }}</li>
+  </ul>
 </template>
 
 <script lang="ts">
@@ -49,6 +53,20 @@ import toChineseNumeral from 'to-chinese-numeral'
 import FontSelect from './FontSelect.vue'
 
 import convertToPinyin from '../utils/convertToPinyin'
+
+const getVoices = () => {
+  return new Promise((resolve) => {
+    let voices = speechSynthesis.getVoices()
+    if (voices.length) {
+      resolve(voices)
+      return
+    }
+    speechSynthesis.onvoiceschanged = () => {
+      voices = speechSynthesis.getVoices()
+      resolve(voices)
+    }
+  })
+}
 
 const FONTS = [
   'Noto Sans SC',
@@ -74,6 +92,7 @@ export default defineComponent({
       chineseNumeral,
       selectedFont: FONTS[0],
       pinyin,
+      voicesList: [] as any[],
     }
   },
   methods: {
@@ -91,11 +110,16 @@ export default defineComponent({
       }
     },
     pronounce() {
-      const utterance = new SpeechSynthesisUtterance(this.chineseNumeral)
-      utterance.lang = 'zh'
+      const utterance = new SpeechSynthesisUtterance('158')
+      utterance.lang = 'zh-CN'
       utterance.rate = 0.5
       speechSynthesis.speak(utterance)
     },
+  },
+  async mounted() {
+    const voices = (await getVoices()) as any
+    console.log(voices)
+    this.voicesList = voices
   },
 })
 </script>
