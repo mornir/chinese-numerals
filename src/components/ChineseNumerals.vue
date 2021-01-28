@@ -14,7 +14,7 @@
       {{ chineseNumeral }}
     </p>
     <p class="ml-2">
-      <span class="mr-3">{{ pinyin }}</span>
+      <span class="mr-3 text-gray-600">{{ pinyin }}</span>
       <button
         @click="pronounce"
         class="focus:outline-gold"
@@ -24,7 +24,7 @@
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          class="inline-block w-6 h-6 text-black cursor-pointer stroke-current"
+          class="inline-block w-6 h-6 text-gray-600 cursor-pointer stroke-current"
         >
           <path
             stroke-linecap="round"
