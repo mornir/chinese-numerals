@@ -2,18 +2,17 @@
   <div class="mb-10 h-52">
     <label for="numeral" class="pl-2">Enter number</label>
     <input
-      type="text"
-      name="numeral"
-      id="numeral"
+      type="number"
       :value="arabicNumeral"
       @input="convertToChineseNumeral"
+      inputmode="numeric"
       class="w-full px-2 py-2 mb-8 text-2xl font-medium border-2 rounded-lg shadow-md border-primary focus:outline-none focus:border-yellow-400"
     />
     <p class="mb-6 ml-2 text-4xl" :style="{ fontFamily: selectedFont }">
       {{ chineseNumeral }}
     </p>
     <p class="ml-2">
-      <span class="mr-3">{{ pinyin }}</span>
+      <span class="mr-3 text-gray-600">{{ pinyin }}</span>
       <button
         @click="pronounce"
         class="focus:outline-gold"
@@ -23,7 +22,7 @@
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          class="inline-block w-6 h-6 text-black cursor-pointer stroke-current"
+          class="inline-block w-6 h-6 text-gray-600 cursor-pointer stroke-current"
         >
           <path
             stroke-linecap="round"
