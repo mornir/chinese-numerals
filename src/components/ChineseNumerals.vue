@@ -2,9 +2,7 @@
   <div class="mb-10 h-52">
     <label for="numeral" class="pl-2">Enter number</label>
     <input
-      type="text"
-      name="numeral"
-      id="numeral"
+      type="number"
       :value="arabicNumeral"
       @input="convertToChineseNumeral"
       inputmode="numeric"
