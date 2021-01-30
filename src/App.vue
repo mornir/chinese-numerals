@@ -1,6 +1,8 @@
 <template>
-  <div class="min-h-screen pt-12">
-    <div class="max-w-lg px-6 py-8 mx-auto bg-white rounded-xl">
+  <div class="min-h-screen sm:pt-12">
+    <div
+      class="max-w-lg min-h-screen px-6 py-8 mx-auto bg-white sm:rounded-xl sm:min-h-0"
+    >
       <TheHeader class="mb-12" />
       <main>
         <ChineseNumerals />
