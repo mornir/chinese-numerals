@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen pt-12 bg-gradiant">
+  <div class="min-h-screen pt-12">
     <div class="max-w-lg px-6 py-8 mx-auto bg-white rounded-xl">
       <TheHeader class="mb-12" />
       <main>
@@ -34,7 +34,7 @@ label {
   font-weight: 400;
 }
 
-bg-gradiant {
+#app {
   background: rgb(220, 38, 38);
   background: linear-gradient(
     153deg,
