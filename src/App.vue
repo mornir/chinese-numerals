@@ -1,9 +1,11 @@
 <template>
-  <div class="max-w-xl px-6 py-8 mx-auto">
-    <TheHeader class="mb-12" />
-    <main>
-      <ChineseNumerals />
-    </main>
+  <div class="min-h-screen pt-12 bg-gradiant">
+    <div class="max-w-lg px-6 py-8 mx-auto bg-white rounded-xl">
+      <TheHeader class="mb-12" />
+      <main>
+        <ChineseNumerals />
+      </main>
+    </div>
   </div>
 </template>
 
@@ -30,5 +32,14 @@ p,
 label {
   font-family: 'Noto Sans SC', sans-serif;
   font-weight: 400;
+}
+
+bg-gradiant {
+  background: rgb(220, 38, 38);
+  background: linear-gradient(
+    153deg,
+    rgba(220, 38, 38, 1) 0%,
+    rgba(254, 202, 202, 1) 100%
+  );
 }
 </style>
