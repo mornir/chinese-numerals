@@ -1,7 +1,8 @@
 <template>
-  <header>
+  <header class="flex items-center">
     <div
-      class="inline-block px-2 pb-2 mr-8 text-3xl leading-tight text-white bg-primary logo-font double-border"
+      class="inline-block px-2 pt-2 pb-4 mr-8 text-3xl text-white bg-primary logo-font double-border"
+      style="writing-mode: vertical-lr"
     >
       中文<br />数字
     </div>
